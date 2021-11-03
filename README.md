@@ -28,7 +28,7 @@ And then execute:
 # It should starts from "HC1:" 
 BARCODE_PAYLOAD = "HC1:NCFOXN%TSMAHN-HMVKBB7 IV+%U+/U0IIDOM 435G8/EB*C2..."
 
-cert = EuDcc::HealthCertificate.from_barcode_payload(BARCODE_PAYLOAD)
+cert = EuDcc::HealthCertificate.from_payload(BARCODE_PAYLOAD)
 ```
 #### Parse certificate from QR-code image
 ```ruby
@@ -114,5 +114,5 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/mykhailog/eu-dcc-gem.
+Bug reports and pull requests are welcome on GitHub at https://github.com/mykhailog/eu-dcc-ruby.
 

@@ -5,10 +5,11 @@ require_relative "../lib/eu_dcc"
 require_relative "./dgc_raw_test_case"
 DGC_TEST_FOLDER = "./spec/dgc-testdata/"
 EXCLUDE_LIST = {
-  ES: %w[401.json 402.json 403.json], # some problems with cryptographic key
-  FR: ["test_pcr_ok.json"] # date mismatch.
+  ES: %w[401.json 402.json 403.json], # https://github.com/eu-digital-green-certificates/dgc-testdata/issues/228
+  FR: ["test_pcr_ok.json"] # https://github.com/eu-digital-green-certificates/dgc-testdata/issues/141
 }
-
+# TODO: read issues from file
+# known_issues = CSV.read("#{DGC_TEST_FOLDER}/tests/known_issues.csv")
 unless File.exists?(DGC_TEST_FOLDER)
   system("cd ./spec/ && git clone git@github.com:eu-digital-green-certificates/dgc-testdata.git")
 else

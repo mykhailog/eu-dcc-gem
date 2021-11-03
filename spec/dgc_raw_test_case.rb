@@ -17,7 +17,7 @@ class DdcRawTestCase
   end
 
   def parse
-    @cert = EuDcc::HealthCertificate.from_barcode_payload(@data["PREFIX"])
+    @cert = EuDcc::HealthCertificate.from_payload(@data["PREFIX"])
   end
 
   def verify

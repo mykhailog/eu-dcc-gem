@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
+#
 require "cose"
-require "date"
 require "cbor"
+require "date"
 require "zlib"
 require "json"
 require "ostruct"
@@ -12,7 +13,7 @@ module EuDcc
   class HealthCertificate
     HC_CONTEXT_IDENTIFIER = "HC1:" # Health Certificate version 1
 
-    def self.from_barcode_payload(barcode_payload)
+    def self.from_payload(barcode_payload)
       raise ArgumentError, "Barcode data should be a string" unless barcode_payload.is_a?(String)
       instance = self.new
       instance.send :parse_barcode_payload, barcode_payload
@@ -20,7 +21,7 @@ module EuDcc
     end
     def self.from_qrcode(qrcode)
       require "zxing"
-      from_barcode_payload(ZXing.decode(qrcode))
+      from_payload(ZXing.decode(qrcode))
     rescue LoadError => e
       warn "zxing gem is missed.\n Please add \"gem 'zxing'\" to your gemfile to support recognition of qrcode."
       raise e
@@ -104,13 +105,13 @@ module EuDcc
         end
 
         base45_data = barcode_payload[HC_CONTEXT_IDENTIFIER.length..-1]
+
         decoded_base45_data = Base45.decode45(base45_data)
         if decoded_base45_data[0] == "x" # This is header for zlib
           cose_signed_message = Zlib::Inflate.inflate(decoded_base45_data)
         else
           cose_signed_message = decoded_base45_data
         end
-
         @cose_sign1_object = COSE::Sign1.deserialize(cose_signed_message)
 
         cbor = @cose_sign1_object.payload

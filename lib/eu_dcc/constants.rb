@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # This list come from official NHS COVID Pass Verifier
 # https://github.com/nhsx/covid-pass-verifier/blob/main/NHSCovidPassVerifier/Configuration/commonConfiguration.json
 module EuDcc

@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require "openssl"
-require "cose"
 require "base64"
 module EuDcc
   # noinspection ALL
