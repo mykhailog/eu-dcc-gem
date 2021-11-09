@@ -2,8 +2,7 @@
 
 An implementation in Ruby for decoding and validating a EU Digital COVID Certificate.
 
-The Digital COVID Certificate (DDC) is digital proof that a person has been vaccinated against COVID-19, received a negative test result, or recovered from COVID-19. It is valid in all EU countries, and even though it contains the word digital in its name, it can be in the form of a paper or a digital certificate.
-
+The Digital COVID Certificate (DCC) is digital proof that a person has been vaccinated against COVID-19, received a negative test result, or recovered from COVID-19. 
 
 *NOTICE: This not an official validator! It comes without any waranties*
 
