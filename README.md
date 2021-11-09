@@ -1,6 +1,6 @@
 # EU COVID Certificate Library
 
-An implementation in Ruby for decoding and validating a EU Digital COVID Certificate.
+Ruby gem for decoding and validating a EU Digital COVID Certificate.
 
 The Digital COVID Certificate (DCC) is digital proof that a person has been vaccinated against COVID-19, received a negative test result, or recovered from COVID-19. 
 
